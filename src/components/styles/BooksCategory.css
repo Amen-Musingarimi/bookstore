@@ -1,0 +1,21 @@
+.categories-container {
+  background-color: #f0f0f0;
+  padding: 4% 4% 8% 4%;
+}
+
+.check-status-btn {
+  cursor: pointer;
+  width: 20%;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: #0290ff;
+  border: none;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.check-status-btn:hover {
+  background-color: #084479;
+}
