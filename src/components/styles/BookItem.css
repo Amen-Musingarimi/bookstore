@@ -1,0 +1,132 @@
+/* ////////////////////////////////////////Styling The Book Details//////////////////////////////////////////// */
+
+.book-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 1.5%;
+  padding: 14px 20px;
+  border: 1px solid #d3d3d3;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+}
+
+.actionBtn {
+  border: none;
+  background-color: transparent;
+  color: #4386bf;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.actionBtn:hover {
+  color: #084479;
+}
+
+.vertical-line {
+  border-left: 1px solid #d3d3d3;
+  height: 20px;
+}
+
+.author-name {
+  color: #4386bf;
+  font-size: 14px;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ////////////////////////////////////////Styling The See Progress Div//////////////////////////////////////////// */
+.progress-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+}
+
+.progress-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-circle {
+  border-radius: 50%;
+  border: 4px solid #307bbe;
+  padding: 30px;
+  border-left: 4px solid #e8e8e8;
+  transform: rotate(45deg);
+}
+
+.percentage {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+}
+
+.completed-text {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* ////////////////////////////////////////Styling The See Progress Div//////////////////////////////////////////// */
+.bigger-vertical-line {
+  border-left: 1px solid #d3d3d3;
+  height: 50px;
+}
+
+.updateProgress-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.chapter-heading {
+  font-size: 12px;
+  opacity: 0.6;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.chapter-details {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.update-chapter-btn {
+  cursor: pointer;
+  border: none;
+  background-color: #0290ff;
+  border-radius: 4px;
+  padding: 8px 24px;
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.update-chapter-btn:hover {
+  background-color: #084479;
+}

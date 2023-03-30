@@ -1,0 +1,59 @@
+.form-section {
+  border-top: 1px solid #d3d3d3;
+  padding: 2% 0 6% 0;
+  margin-top: 2%;
+}
+
+.form-section-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+input,
+select {
+  border: 1.5px solid #e8e8e8;
+  outline: none;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #000;
+}
+
+input {
+  width: 50%;
+}
+
+input:focus {
+  border: 1px solid #0290ff;
+}
+
+select {
+  width: 30%;
+}
+
+.add-book-btn {
+  cursor: pointer;
+  width: 20%;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: #0290ff;
+  border: none;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.add-book-btn:hover {
+  background-color: #084479;
+}
