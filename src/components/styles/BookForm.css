@@ -29,21 +29,29 @@ select {
   color: #000;
 }
 
-input {
+/* input {
   width: 50%;
-}
+} */
 
 input:focus {
   border: 1px solid #0290ff;
 }
 
+.book-title-input {
+  width: 35%;
+}
+
+.book-author-input {
+  width: 25%;
+}
+
 select {
-  width: 30%;
+  width: 25%;
 }
 
 .add-book-btn {
   cursor: pointer;
-  width: 20%;
+  width: 15%;
   padding: 12px;
   border-radius: 4px;
   background-color: #0290ff;

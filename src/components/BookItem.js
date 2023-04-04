@@ -6,12 +6,12 @@ import UpdateBookProgress from './UpdateBookProgress';
 import './styles/BookItem.css';
 
 const BookItem = ({
-  category, title, author, completed,
+  title, category, author, id,
 }) => (
   <div className="book-container">
-    <BookDetails category={category} title={title} author={author} />
+    <BookDetails title={title} author={author} category={category} id={id} />
     <div className="progress-container">
-      <BookProgressDetails completed={completed} />
+      <BookProgressDetails />
       <div className="bigger-vertical-line" />
       <UpdateBookProgress />
     </div>
@@ -22,7 +22,7 @@ BookItem.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  completed: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default BookItem;

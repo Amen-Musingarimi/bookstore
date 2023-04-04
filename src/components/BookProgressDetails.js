@@ -1,21 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const BookProgressDetails = ({ completed }) => (
+const BookProgressDetails = () => (
   <div className="progress-div">
     <div className="progress-circle" />
     <div className="percentage-div">
-      <p className="percentage">
-        {completed}
-        %
-      </p>
+      <p className="percentage">0%</p>
       <p className="completed-text">Completed</p>
     </div>
   </div>
 );
-
-BookProgressDetails.propTypes = {
-  completed: PropTypes.number.isRequired,
-};
 
 export default BookProgressDetails;
