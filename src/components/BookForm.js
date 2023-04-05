@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// eslint-disable-next-line
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 import './styles/BookForm.css';
@@ -25,9 +26,14 @@ const BookForm = () => {
 
   const bookSubmitHandler = (event) => {
     event.preventDefault();
-    dispatch(addBook({
-      title, author, category, id: uuidv4(),
-    }));
+    dispatch(
+      addBook({
+        title,
+        author,
+        category,
+        id: uuidv4(),
+      }),
+    );
     setTitle('');
     setAuthor('');
     setCategory('Action');
