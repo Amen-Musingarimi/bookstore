@@ -9,88 +9,84 @@ export const getBooksAsync = createAsyncThunk(
       'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books'
     );
     if (response.ok) {
-      const books = await response.json();
-      return { books };
+      const data = await response.json();
+      const books = [
+        Object.keys(data).map((key) => ({
+          item_id: key,
+          ...data[key][0],
+        })),
+      ];
+      return books;
     }
   }
 );
 
-export const addBookAsync = createAsyncThunk(
-  'books/addBookAsync',
-  async (payload) => {
-    const resp = await fetch(
-      'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books',
+export const addBookAsync = createAsyncThunk('Book/addBook', async (book) => {
+  await fetch(
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books',
+    {
+      method: 'POST',
+      body: JSON.stringify(book),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  console.log(book);
+  return book;
+});
+
+export const deleteBookAsync = createAsyncThunk(
+  'deleteBookAsync',
+  async (id) => {
+    await fetch(
+      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books/${id}`,
       {
-        method: 'POST',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          item_id: uuidv4(),
-          title: payload.title,
-          author: payload.author,
-          category: payload.category,
-        }),
       }
     );
-
-    if (resp.ok) {
-      const book = await resp.json();
-      return { book };
-    }
-  }
-);
-
-export const deleteBookAsync = createAsyncThunk(
-  'books/deleteBookAsync',
-  async (payload) => {
-    const resp = await fetch(
-      `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books/${payload}`,
-      {
-        method: 'DELETE',
-      }
-    );
-
-    if (resp.ok) {
-      return { payload };
-    }
+    return id;
   }
 );
 
 const booksSlice = createSlice({
   name: 'books',
-  initialState: [],
-  reducers: {
-    addBook: (state, action) => {
-      const newBook = {
-        item_id: uuidv4(),
-        title: action.payload.title,
-        author: action.payload.author,
-        category: action.payload.category,
-      };
-      state.push(newBook);
-    },
-
-    removeBook: (state, action) => {
-      const idToRemove = action.payload;
-      return state.filter((book) => Object.keys(book)[0] !== idToRemove);
-    },
+  initialState: {
+    books: [],
   },
+  reducers: {},
 
-  extraReducers: {
-    [getBooksAsync.fulfilled]: (state, action) => {
-      return action.payload.books;
-    },
+  extraReducers: (builder) => {
+    builder.addCase(getBooksAsync.fulfilled, (state, action) => {
+      const updatedState = state;
+      const newStore = action.payload[0];
+      updatedState.books = newStore;
+    });
 
-    [addBookAsync.fulfilled]: (state, action) => {
-      state.push(action.payload.book);
-    },
-    [deleteBookAsync.fulfilled]: (state, action) => {
-      const idToRemove = action.payload;
-      return Object.fromEntries(
-        Object.entries(state).filter(([key]) => key !== idToRemove)
-      );
-    },
+    builder.addCase(addBookAsync.fulfilled, (state, action) => {
+      const item = action.payload;
+      state.books.push(item);
+    });
+
+    builder.addCase(deleteBookAsync.fulfilled, (state, action) => {
+      const id = action.payload;
+      const newState = { ...state };
+      newState.books = state.books.filter((book) => book.item_id !== id);
+      return newState;
+    });
+
+    // [addBookAsync.fulfilled]: (state, action) => {
+    //   state.push(action.payload.book);
+    // },
+    // [deleteBookAsync.fulfilled]: (state, action) => {
+    //   const idToRemove = action.payload;
+    //   return Object.fromEntries(
+    //     Object.entries(state).filter(([key]) => key !== idToRemove)
+    //   );
+    // },
   },
 });
 

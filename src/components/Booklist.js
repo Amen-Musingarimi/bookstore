@@ -5,7 +5,7 @@ import BookItem from './BookItem';
 
 const BookList = () => {
   const dispatch = useDispatch();
-  const books = useSelector((store) => store.books);
+  const { books } = useSelector((state) => state.book);
 
   useEffect(() => {
     dispatch(getBooksAsync());
@@ -13,15 +13,15 @@ const BookList = () => {
 
   return (
     <>
-      {Object.keys(books).map((key) => books[key].map((book) => (
+      {books.map((book) => (
         <BookItem
-          key={key}
-          id={key}
+          key={book.item_id}
+          id={book.item_id}
           title={book.title}
           author={book.author}
           category={book.category}
         />
-      )))}
+      ))}
     </>
   );
 };
