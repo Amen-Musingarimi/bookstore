@@ -7,7 +7,6 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -55,14 +54,7 @@
 - **[delete-book]**
 - **[edit-book-details]**
 - **[update-progress]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Coming Soon](Coming-Soon)
+- - **[api]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,30 +68,26 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
+```
 Node js
+```
 
 ```sh
 sudo yum install nodejs
 ```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-
 ```sh
   git clone https://github.com/Amen-Musingarimi/bookstore.git
 ```
---->
 
 ### Install
 
 Install this project with:
 
-<!--
 Example command:
 
 ```sh
@@ -107,35 +95,26 @@ Example command:
   npm install
   npm run build
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-
 ```sh
   npm start
 ```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-
 ```sh
   npm run test
 ```
---->
 
 ### Deployment
 
 You can deploy this project using:
-
-<!--
 
 ```sh
   Github pages
@@ -143,7 +122,6 @@ You can deploy this project using:
   Netlify
   etc
 ```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -162,7 +140,7 @@ You can deploy this project using:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[api]**
+- [ ] **[category-filter]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
