@@ -65,3 +65,7 @@ select {
 .add-book-btn:hover {
   background-color: #084479;
 }
+
+.error-message {
+  color: red;
+}

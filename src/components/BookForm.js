@@ -2,46 +2,53 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // eslint-disable-next-line
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/booksSlice';
+import { addBookAsync } from '../redux/books/booksSlice';
 import './styles/BookForm.css';
 
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('Action');
+  const [category, setCategory] = useState('Fiction');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const dispatch = useDispatch();
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+    setTitle(event.target.value.trim());
   };
 
   const handleAuthorChange = (event) => {
-    setAuthor(event.target.value);
+    setAuthor(event.target.value.trim());
   };
 
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+    setCategory(event.target.value.trim());
   };
 
   const bookSubmitHandler = (event) => {
     event.preventDefault();
-    dispatch(
-      addBook({
-        title,
-        author,
-        category,
-        id: uuidv4(),
-      }),
-    );
-    setTitle('');
-    setAuthor('');
-    setCategory('Action');
+    if (title && author && category) {
+      dispatch(
+        addBookAsync({
+          title,
+          author,
+          category,
+          item_id: uuidv4(),
+        }),
+      );
+      setTitle('');
+      setAuthor('');
+      setCategory('Fiction');
+      setErrorMessage('');
+    } else {
+      setErrorMessage('Please fill all inputs!');
+    }
   };
 
   return (
     <div className="form-section">
       <h2 className="form-section-heading">ADD NEW BOOK</h2>
+      <p className="error-message">{errorMessage}</p>
       <form>
         <input
           placeholder="Book title"
@@ -64,26 +71,29 @@ const BookForm = () => {
           onChange={handleCategoryChange}
           className="category-input"
         >
-          <option value="Action" className="category">
-            Action
+          <option value="Fiction" className="category">
+            Fiction
           </option>
-          <option value="Science Fiction" className="category">
-            Science fiction
+          <option value="Non-Fiction" className="category">
+            Non-Fiction
           </option>
-          <option value="Non-fiction" className="category">
-            Non-fiction
+          <option value="Mystery/Thriller" className="category">
+            Mystery/Thriller
           </option>
           <option value="Romance" className="category">
             Romance
           </option>
-          <option value="Mystery" className="category">
-            Mystery
+          <option value="Science Fiction/Fantasy" className="category">
+            Science Fiction/Fantasy
           </option>
-          <option value="Horror" className="category">
-            Horror
+          <option value="Business/Finance" className="category">
+            Business/Finance
           </option>
-          <option value="Academics" className="category">
-            Academics
+          <option value="Self-Help/Personal Developments" className="category">
+            Self-Help/Personal Development
+          </option>
+          <option value="Biography/Autobiography" className="category">
+            Biography/Autobiography
           </option>
         </select>
         <button

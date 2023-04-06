@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeBook } from '../redux/books/booksSlice';
+import { deleteBookAsync } from '../redux/books/booksSlice';
 
 const BookDetails = ({
   category, author, title, id,
@@ -8,7 +8,7 @@ const BookDetails = ({
   const dispatch = useDispatch();
 
   const deleteBookHandler = () => {
-    dispatch(removeBook({ id }));
+    dispatch(deleteBookAsync(id));
   };
 
   return (
@@ -39,7 +39,7 @@ BookDetails.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default BookDetails;

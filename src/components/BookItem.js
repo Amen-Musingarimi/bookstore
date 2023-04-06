@@ -22,7 +22,7 @@ BookItem.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default BookItem;
