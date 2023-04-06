@@ -2,7 +2,9 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteBookAsync } from '../redux/books/booksSlice';
 
-const BookDetails = ({ category, author, title, id }) => {
+const BookDetails = ({
+  category, author, title, id,
+}) => {
   const dispatch = useDispatch();
 
   const deleteBookHandler = () => {

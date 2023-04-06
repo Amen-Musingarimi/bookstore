@@ -6,7 +6,7 @@ export const getBooksAsync = createAsyncThunk(
   'books/getBooksAsync',
   async () => {
     const response = await fetch(
-      'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books'
+      'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Y07UI7x7vu0Iu5RsRAh6/books',
     );
     if (response.ok) {
       const data = await response.json();
@@ -18,7 +18,8 @@ export const getBooksAsync = createAsyncThunk(
       ];
       return books;
     }
-  }
+    return null;
+  },
 );
 
 export const addBookAsync = createAsyncThunk('Book/addBook', async (book) => {
@@ -30,9 +31,8 @@ export const addBookAsync = createAsyncThunk('Book/addBook', async (book) => {
       headers: {
         'Content-Type': 'application/json',
       },
-    }
+    },
   );
-  console.log(book);
   return book;
 });
 
@@ -46,10 +46,10 @@ export const deleteBookAsync = createAsyncThunk(
         headers: {
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     return id;
-  }
+  },
 );
 
 const booksSlice = createSlice({
@@ -77,16 +77,6 @@ const booksSlice = createSlice({
       newState.books = state.books.filter((book) => book.item_id !== id);
       return newState;
     });
-
-    // [addBookAsync.fulfilled]: (state, action) => {
-    //   state.push(action.payload.book);
-    // },
-    // [deleteBookAsync.fulfilled]: (state, action) => {
-    //   const idToRemove = action.payload;
-    //   return Object.fromEntries(
-    //     Object.entries(state).filter(([key]) => key !== idToRemove)
-    //   );
-    // },
   },
 });
 

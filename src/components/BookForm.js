@@ -9,19 +9,20 @@ const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('Fiction');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const dispatch = useDispatch();
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+    setTitle(event.target.value.trim());
   };
 
   const handleAuthorChange = (event) => {
-    setAuthor(event.target.value);
+    setAuthor(event.target.value.trim());
   };
 
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+    setCategory(event.target.value.trim());
   };
 
   const bookSubmitHandler = (event) => {
@@ -33,17 +34,21 @@ const BookForm = () => {
           author,
           category,
           item_id: uuidv4(),
-        })
+        }),
       );
       setTitle('');
       setAuthor('');
       setCategory('Fiction');
+      setErrorMessage('');
+    } else {
+      setErrorMessage('Please fill all inputs!');
     }
   };
 
   return (
     <div className="form-section">
       <h2 className="form-section-heading">ADD NEW BOOK</h2>
+      <p className="error-message">{errorMessage}</p>
       <form>
         <input
           placeholder="Book title"

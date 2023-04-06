@@ -18,7 +18,7 @@ const BookItem = ({
   </div>
 );
 
-BookDetails.propTypes = {
+BookItem.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
