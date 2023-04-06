@@ -54,7 +54,7 @@
 - **[delete-book]**
 - **[edit-book-details]**
 - **[update-progress]**
-- - **[api]**
+- **[api]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,8 +137,6 @@ You can deploy this project using:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **[category-filter]**
 
