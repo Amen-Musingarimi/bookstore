@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // eslint-disable-next-line
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/booksSlice';
+import { addBookAsync } from '../redux/books/booksSlice';
 import './styles/BookForm.css';
 
 const BookForm = () => {
@@ -27,11 +27,11 @@ const BookForm = () => {
   const bookSubmitHandler = (event) => {
     event.preventDefault();
     dispatch(
-      addBook({
+      addBookAsync({
         title,
         author,
         category,
-        id: uuidv4(),
+        item_id: uuidv4(),
       }),
     );
     setTitle('');
