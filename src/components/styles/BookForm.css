@@ -29,10 +29,6 @@ select {
   color: #000;
 }
 
-/* input {
-  width: 50%;
-} */
-
 input:focus {
   border: 1px solid #0290ff;
 }
